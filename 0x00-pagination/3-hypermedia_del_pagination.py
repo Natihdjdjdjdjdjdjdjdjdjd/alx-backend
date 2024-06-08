@@ -50,7 +50,7 @@ class Server:
         my_data = []
         my_next = index
         for _ in range(page_size):
-            while not csv.get(_next):
+            while not csv.get(my_next):
                 my_next += 1
             my_data.append(csv.get(my_next))
             my_next += 1
