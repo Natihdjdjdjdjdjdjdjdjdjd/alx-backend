@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-'''
-let locate locale from request
+''' lets go Get locale from request
 '''
 
 from flask import Flask, render_template, request
@@ -24,14 +23,20 @@ babel = Babel(app)
 
 @babel.localeselector
 def get_locale() -> str:
-    """tje my Retrieves the locale for a web page.
+    """Retrieves the locale for a web page.
+
+    Returns:
+        str: best match
     """
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 @app.route('/')
 def index() -> str:
-    '''default router and my kdlslks 
+    '''default route
+
+    Returns:
+        html: homepage
     '''
     return render_template("2-index.html")
 
